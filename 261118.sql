@@ -67,3 +67,9 @@ LEFT JOIN enrollments e ON e.course_id = c.course_id
                        AND e.enroll_month = '2026-11'
 GROUP BY i.instructor_id, i.name, s.sport_name
 ORDER BY 이번달신청 DESC, i.name COLLATE "ko-x-icu";
+
+HAVING은 GROUP BY로 그룹화된 집계 결과에 조건을 적용하는 반면, 
+    
+WHERE는 그룹화 이전 개별 행에 조건을 적용합니다. 
+집계 전 데이터를 줄이는 WHERE가 성능상 유리한 경우가 많으며,
+HAVING은 오히려 집계함수(AVG, SUM 등)의 결과를 조건으로 사용하기 위해 필요합니다.
