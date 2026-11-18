@@ -1,4 +1,22 @@
--- 주석은 -- 데이터베이스 생성 (Data Definition Lauguage)
+-- 주석은 -- 데이터베이스 생성 (Data Definition Lauguage) 
+-- 이름은 정확히 docker-compose.yaml 파일 이름으로 만들어서 아래와 같은 형식으로 만들어야 함
+
+-- services:                                                 # 실행할 컨테이너(서비스) 목록 — 필수
+--   db:                                                     # 예: db, web (직접 정하는 이름)
+--     image: postgres:18                                    # 사용할 이미지
+--     container_name: kant-pg                               # 컨테이너 이름 (생략 시 자동 생성)
+--     environment:                                          # 환경 변수 (-e)
+--       POSTGRES_PASSWORD: admin1234
+--     ports:                                                # 포트 연결 (-p) — 문자열로 감싸는 것을 권장
+--       - "5433:5432"
+--     volumes:                                              # 볼륨 연결 (-v)
+--       - pgdata:/var/lib/postgresql
+
+-- volumes:                                                  # 사용할 볼륨 선언 (최상위)
+--   pgdata:
+--     external: truef
+
+
 CREATE DATABASE sportscenter;
 
 --회원 테이블 tbs_테이블명, viw_뷰명(DDL)
